@@ -1,0 +1,44 @@
+[
+  {
+    "id":"brands",
+    "name": "品牌"
+  },
+  {
+    "id":"costume",
+    "name": "服饰"
+  },
+  {
+    "id":"bags",
+    "name": "箱包"
+  },
+  {
+    "id":"shoes",
+    "name": "鞋靴"
+  },
+  {
+    "id":"accessories",
+    "name": "配饰"
+  },
+  {
+    "id":"skincare",
+    "name": "美容护肤"
+  },
+  {
+    "id":"3CAccessories",
+    "name": "3C配件"
+  },
+  {
+    "id":"sports",
+    "name": "运动户外"
+  },
+
+  {
+    "id":"household",
+    "name": "家居日用"
+  },
+
+  {
+    "id":"sexytools",
+    "name": "成人情趣"
+  }
+]
