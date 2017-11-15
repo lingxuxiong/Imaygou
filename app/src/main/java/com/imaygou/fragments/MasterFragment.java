@@ -1,7 +1,7 @@
 package com.imaygou.fragments;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
@@ -15,9 +15,9 @@ import android.widget.TextView;
 
 import com.imaygou.R;
 import com.imaygou.dal.CategoriesLoader;
-import com.imaygou.data.Category;
+import com.imaygou.dal.Loaders;
+import com.imaygou.entities.CategoryEntity;
 
-import java.lang.ref.WeakReference;
 import java.util.Collections;
 import java.util.List;
 
@@ -25,18 +25,16 @@ import java.util.List;
  * Manage categories list.
  */
 public class MasterFragment extends Fragment
-        implements LoaderManager.LoaderCallbacks<List<Category>> {
+        implements LoaderManager.LoaderCallbacks<List<CategoryEntity>> {
 
     private static final String TAG = "MasterFragment";
-
-    private static final int LOADER_ID_LOAD_CATEGORIES = 1;
 
     private RecyclerView mCategoriesView;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getLoaderManager().initLoader(LOADER_ID_LOAD_CATEGORIES, new Bundle(), this);
+        getLoaderManager().initLoader(Loaders.LOADER_ID_LOAD_CATEGORY, new Bundle(), this);
     }
 
     @Override
@@ -53,22 +51,27 @@ public class MasterFragment extends Fragment
     }
 
     @Override
-    public Loader<List<Category>> onCreateLoader(int id, Bundle args) {
-        switch (id)  {
-            case LOADER_ID_LOAD_CATEGORIES:
-                return new CategoriesLoader(getActivity());
-        }
-        return null;
+    public Loader<List<CategoryEntity>> onCreateLoader(int id, Bundle args) {
+        return new CategoriesLoader(getActivity());
     }
 
     @Override
-    public void onLoadFinished(Loader<List<Category>> loader, List<Category> data) {
-        Log.d(TAG, "onLoadFinished");
-        mCategoriesView.setAdapter(new CategoriesAdapter(getActivity(), data));
+    public void onLoadFinished(Loader<List<CategoryEntity>> loader, final List<CategoryEntity> data) {
+        mCategoriesView.setAdapter(new CategoriesAdapter(data));
+
+        // Default to show details of the first category.
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                CategoryEntity entity = data.get(0);
+                showDetail(entity.getName(), entity.getLabel());
+            }
+        });
+
     }
 
     @Override
-    public void onLoaderReset(Loader<List<Category>> loader) {
+    public void onLoaderReset(Loader<List<CategoryEntity>> loader) {
         Log.d(TAG, "onLoaderReset");
     }
 
@@ -83,38 +86,30 @@ public class MasterFragment extends Fragment
 
     }
 
-    private static class CategoriesAdapter extends RecyclerView.Adapter<CategoryItemViewHolder> {
+    private class CategoriesAdapter extends RecyclerView.Adapter<CategoryItemViewHolder> {
 
-        private final WeakReference<Activity> mContext;
-        private final List<Category> mCategoriesList;
+        private final List<CategoryEntity> mCategoriesList;
 
-        CategoriesAdapter(Activity context, List<Category> categories) {
-            mContext = new WeakReference<>(context);
-            mCategoriesList = categories == null ? Collections.<Category>emptyList() : categories;
+        CategoriesAdapter(List<CategoryEntity> categories) {
+            mCategoriesList = categories == null ? Collections.<CategoryEntity>emptyList() : categories;
         }
 
         @Override
         public CategoryItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(mContext.get()).inflate(R.layout.category_item, null);
+            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_item, null);
             return new CategoryItemViewHolder(itemView);
         }
 
         @Override
-        public void onBindViewHolder(CategoryItemViewHolder holder, final int position) {
-            holder.txvName.setText(mCategoriesList.get(position).getName());
+        public void onBindViewHolder(final CategoryItemViewHolder holder, int position) {
+            holder.txvName.setText(mCategoriesList.get(position).getLabel());
             holder.txvName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle arguments = new Bundle();
-                    arguments.putString(DetailsFragment.ARG_CATEGORY_ID,
-                            mCategoriesList.get(position).getId());
-                    arguments.putString(DetailsFragment.ARG_CATEGORY_NAME,
-                            mCategoriesList.get(position).getName());
-                    DetailsFragment fragment = new DetailsFragment();
-                    fragment.setArguments(arguments);
-                    mContext.get().getFragmentManager().beginTransaction()
-                            .replace(R.id.details_fragment_container, fragment)
-                            .commit();
+                    int pos = holder.getAdapterPosition();
+                    String name = mCategoriesList.get(pos).getName();
+                    String label = mCategoriesList.get(pos).getLabel();
+                    showDetail(name, label);
                 }
             });
         }
@@ -123,5 +118,17 @@ public class MasterFragment extends Fragment
         public int getItemCount() {
             return mCategoriesList.size();
         }
+    }
+
+    void showDetail(String categoryName, String categoryLabel) {
+        Bundle arguments = new Bundle();
+        arguments.putString(DetailsFragment.ARG_CATEGORY_NAME, categoryName);
+        arguments.putString(DetailsFragment.ARG_CATEGORY_LABEL,categoryLabel);
+        DetailsFragment fragment = new DetailsFragment();
+        fragment.setArguments(arguments);
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.details_fragment_container, fragment)
+                .commit();
+
     }
 }

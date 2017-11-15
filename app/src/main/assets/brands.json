@@ -1,0 +1,265 @@
+[
+  {
+    "title": "品牌",
+    "display": "grid",
+    "items": [
+      {
+        "name": "Ollies",
+        "label": "Ollies",
+        "icon": "ollies.png"
+      },
+      {
+        "name": "Panda",
+        "label": "Panda",
+        "icon": "panda.png"
+      },
+      {
+        "name": "Pizzahut",
+        "label": "Pizzahut",
+        "icon": "pizzahut.png"
+      },
+      {
+        "name": "Nike",
+        "label": "Nike",
+        "icon": "nike.png"
+      },
+      {
+        "name": "Aglestar",
+        "label": "Aglestar",
+        "icon": "aglestar.png"
+      },
+      {
+        "name": "logotent",
+        "label": "logotent",
+        "icon": "logotent.png"
+      }
+    ]
+  },
+
+  {
+    "title": "A",
+    "display":"list",
+    "items": [
+      {
+        "name": "Nike",
+        "label":"Nike",
+        "icon": "nike.png"
+      },
+      {
+        "name": "Aglestar",
+        "label": "Aglestar",
+        "icon": "aglestar.png"
+      },
+      {
+        "name": "logotent",
+        "label": "logotent",
+        "icon": "logotent.png"
+      },
+      {
+        "name": "Ollies",
+        "label": "Ollies",
+        "icon": "ollies.png"
+      },
+      {
+        "name": "Panda",
+        "label": "Panda",
+        "icon": "panda.png"
+      },
+      {
+        "name": "Pizzahut",
+        "label": "Pizzahut",
+        "icon": "pizzahut.png"
+      },
+      {
+        "name": "Rabbit",
+        "label": "Rabbit",
+        "icon": "rabbit.png"
+      },
+      {
+        "name": "Mcdonald",
+        "label": "Mcdonald",
+        "icon": "mcdonald.png"
+      },
+      {
+        "name": "Sword",
+        "label": "Sword",
+        "icon": "sword.png"
+      },
+      {
+        "name": "Tart",
+        "label": "Tart",
+        "icon": "tart.png"
+      }
+    ]
+  },
+
+  {
+    "title": "B",
+    "display":"list",
+    "items": [
+      {
+        "name": "Nike",
+        "label":"Nike",
+        "icon": "nike.png"
+      },
+      {
+        "name": "Aglestar",
+        "label": "Aglestar",
+        "icon": "aglestar.png"
+      },
+      {
+        "name": "logotent",
+        "label": "logotent",
+        "icon": "logotent.png"
+      },
+      {
+        "name": "Ollies",
+        "label": "Ollies",
+        "icon": "ollies.png"
+      },
+      {
+        "name": "Panda",
+        "label": "Panda",
+        "icon": "panda.png"
+      },
+      {
+        "name": "Pizzahut",
+        "label": "Pizzahut",
+        "icon": "pizzahut.png"
+      },
+      {
+        "name": "Rabbit",
+        "label": "Rabbit",
+        "icon": "rabbit.png"
+      },
+      {
+        "name": "Mcdonald",
+        "label": "Mcdonald",
+        "icon": "mcdonald.png"
+      },
+      {
+        "name": "Sword",
+        "label": "Sword",
+        "icon": "sword.png"
+      },
+      {
+        "name": "Tart",
+        "label": "Tart",
+        "icon": "tart.png"
+      }
+    ]
+  },
+
+  {
+    "title": "C",
+    "display":"list",
+    "items": [
+      {
+        "name": "Nike",
+        "label":"Nike",
+        "icon": "nike.png"
+      },
+      {
+        "name": "Aglestar",
+        "label": "Aglestar",
+        "icon": "aglestar.png"
+      },
+      {
+        "name": "logotent",
+        "label": "logotent",
+        "icon": "logotent.png"
+      },
+      {
+        "name": "Ollies",
+        "label": "Ollies",
+        "icon": "ollies.png"
+      },
+      {
+        "name": "Panda",
+        "label": "Panda",
+        "icon": "panda.png"
+      },
+      {
+        "name": "Pizzahut",
+        "label": "Pizzahut",
+        "icon": "pizzahut.png"
+      },
+      {
+        "name": "Rabbit",
+        "label": "Rabbit",
+        "icon": "rabbit.png"
+      },
+      {
+        "name": "Mcdonald",
+        "label": "Mcdonald",
+        "icon": "mcdonald.png"
+      },
+      {
+        "name": "Sword",
+        "label": "Sword",
+        "icon": "sword.png"
+      },
+      {
+        "name": "Tart",
+        "label": "Tart",
+        "icon": "tart.png"
+      }
+    ]
+  },
+  {
+    "title": "D",
+    "display":"list",
+    "items": [
+      {
+        "name": "Nike",
+        "label":"Nike",
+        "icon": "nike.png"
+      },
+      {
+        "name": "Aglestar",
+        "label": "Aglestar",
+        "icon": "aglestar.png"
+      },
+      {
+        "name": "logotent",
+        "label": "logotent",
+        "icon": "logotent.png"
+      },
+      {
+        "name": "Ollies",
+        "label": "Ollies",
+        "icon": "ollies.png"
+      },
+      {
+        "name": "Panda",
+        "label": "Panda",
+        "icon": "panda.png"
+      },
+      {
+        "name": "Pizzahut",
+        "label": "Pizzahut",
+        "icon": "pizzahut.png"
+      },
+      {
+        "name": "Rabbit",
+        "label": "Rabbit",
+        "icon": "rabbit.png"
+      },
+      {
+        "name": "Mcdonald",
+        "label": "Mcdonald",
+        "icon": "mcdonald.png"
+      },
+      {
+        "name": "Sword",
+        "label": "Sword",
+        "icon": "sword.png"
+      },
+      {
+        "name": "Tart",
+        "label": "Tart",
+        "icon": "tart.png"
+      }
+    ]
+  }
+]

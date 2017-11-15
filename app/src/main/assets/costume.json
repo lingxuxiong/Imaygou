@@ -1,0 +1,79 @@
+[
+  {
+    "title": "Women's Dress",
+    "display": "grid",
+    "items": [
+      {
+        "name": "Dress",
+        "label": "Dress",
+        "icon": "dress.png"
+      },
+      {
+        "name": "Tops",
+        "label": "Tops",
+        "icon": "tops.png"
+      },
+      {
+        "name": "T-shirt",
+        "label": "T-shirt",
+        "icon": "tart.png"
+      },
+      {
+        "name": "Chiffton shirt",
+        "label": "Chiffton shirt",
+        "icon": "chiffton_shirt.png"
+      },
+      {
+        "name": "Skirt",
+        "label": "Skirt",
+        "icon": "skirt.png"
+      },
+      {
+        "name": "casual-pants",
+        "label": "Casual Pants",
+        "icon": "casual_pants.png"
+      },
+      {
+        "name": "Jeans",
+        "label": "Jeans",
+        "icon": "aglestar.png"
+      },
+      {
+        "name": "Braces skirt",
+        "label": "Braces skirt",
+        "icon": "ollies.png"
+      },
+      {
+        "name": "Shirt",
+        "label": "Shirt",
+        "icon": "rabbit.png"
+      }
+    ]
+  },
+  {
+    "title": "Men's Wear",
+    "display": "grid",
+    "items": [
+      {
+        "name": "Dress",
+        "label": "Dress",
+        "icon": "dress.png"
+      },
+      {
+        "name": "Tops",
+        "label": "Tops",
+        "icon": "tops.png"
+      },
+      {
+        "name": "T-shirt",
+        "label": "T-shirt",
+        "icon": "tart.png"
+      },
+      {
+        "name": "Chiffton shirt",
+        "label": "Chiffton shirt",
+        "icon": "chiffton_shirt.png"
+      }
+    ]
+  }
+]

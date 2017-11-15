@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/grid_logo_width"
+        android:layout_height="@dimen/grid_logo_height"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/sub_category_item_logo"/>
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/category_name"
+        android:gravity="center"
+        android:layout_below="@+id/logo"
+        android:layout_alignLeft="@+id/logo"
+        android:layout_alignRight="@+id/logo"
+        />
+</RelativeLayout>
