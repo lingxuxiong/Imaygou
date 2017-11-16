@@ -28,6 +28,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  *  Represent details of a specific category.
  */
@@ -40,7 +44,12 @@ public class DetailsFragment extends Fragment
     public static final String ARG_CATEGORY_NAME = "name";
     public static final String ARG_CATEGORY_LABEL = "label";
 
+    @BindView(R.id.sub_category_details)
+    RecyclerView mDetailsRecyclerView;
+
     private SubCategoryAdapter mSubCategoryAdapter;
+
+    private Unbinder mUnbinder;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,13 +83,21 @@ public class DetailsFragment extends Fragment
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.subcategory, null);
+        View root = inflater.inflate(R.layout.subcategory, null);
+        mUnbinder = ButterKnife.bind(this, root);
+        return root;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mUnbinder.unbind();
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        RecyclerView detailsView = (RecyclerView) getView().findViewById(R.id.sub_category_details);
-        detailsView.setAdapter(mSubCategoryAdapter);
+
+        mDetailsRecyclerView.setAdapter(mSubCategoryAdapter);
     }
 
     @Override
@@ -99,25 +116,24 @@ public class DetailsFragment extends Fragment
 
     }
 
-    private static class HeaderViewHolder extends RecyclerView.ViewHolder {
+    static class HeaderViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView mTxvHeader;
+        @BindView(R.id.header) TextView mTxvHeader;
 
         private HeaderViewHolder(View headerView) {
             super(headerView);
-            mTxvHeader = (TextView) headerView.findViewById(R.id.header);
+            ButterKnife.bind(this, headerView);
         }
     }
 
-    private static class ItemViewHolder extends RecyclerView.ViewHolder {
+    static class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView mLogo;
-        private TextView mLabel;
+        @BindView(R.id.logo) ImageView mLogo;
+        @BindView(R.id.label) TextView mLabel;
 
         private ItemViewHolder(View subCategoryView) {
             super(subCategoryView);
-            mLogo = (ImageView) subCategoryView.findViewById(R.id.logo);
-            mLabel = (TextView) subCategoryView.findViewById(R.id.label);
+            ButterKnife.bind(this, subCategoryView);
         }
     }
 

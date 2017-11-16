@@ -21,6 +21,11 @@ import com.imaygou.entities.CategoryEntity;
 import java.util.Collections;
 import java.util.List;
 
+import butterknife.BindString;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * Manage categories list.
  */
@@ -29,7 +34,10 @@ public class MasterFragment extends Fragment
 
     private static final String TAG = "MasterFragment";
 
-    private RecyclerView mCategoriesView;
+    @BindView(R.id.categories)
+    RecyclerView mCategoriesView;
+
+    private Unbinder mUnbinder;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,13 +49,15 @@ public class MasterFragment extends Fragment
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.categories, null);
+        View root = inflater.inflate(R.layout.categories, null);
+        mUnbinder = ButterKnife.bind(this, root);
+        return root;
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mCategoriesView = (RecyclerView) view.findViewById(R.id.categories);
+    public void onDestroyView() {
+        super.onDestroyView();
+        mUnbinder.unbind();
     }
 
     @Override
@@ -75,13 +85,14 @@ public class MasterFragment extends Fragment
         Log.d(TAG, "onLoaderReset");
     }
 
-    private static class CategoryItemViewHolder extends RecyclerView.ViewHolder {
+    static class CategoryItemViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView txvName;
+        @BindView(R.id.category_name)
+        TextView txvName;
 
         CategoryItemViewHolder(View view) {
             super(view);
-            txvName = (TextView) view.findViewById(R.id.category_name);
+            ButterKnife.bind(this, view);
         }
 
     }
