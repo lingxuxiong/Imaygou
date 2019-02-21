@@ -2,16 +2,17 @@ version: 2.1
 
 jobs:
     build:
+        working_directory: ~/code
         docker:
-            - image: circleci/android:api-27-alpha
+          - image: circleci/android:api-25-alpha
         steps:
-            - checkout
-            - run: echo "Hello world"
+          - checkout
+          - run: echo "Hello world"
 orbs:
     hello: circleci/hello-build@0.0.7 # uses the circleci/buildpack-deps Docker image
 
 workflows:
     "Hello Workflow":
-        jobs:
-          #- hello/hello-build
-          - build
+      jobs:
+      #- hello/hello-build
+      - build
