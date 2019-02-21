@@ -9,6 +9,9 @@ jobs:
           - checkout
           - restore_cache:
               key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          - run:
+              name: "add x permission for gradlew as necessary"
+              command: chmod +x ./gradlew
           - save_cache:
               paths:
                 - ~/.gradle
