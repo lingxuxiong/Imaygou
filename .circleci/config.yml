@@ -12,6 +12,9 @@ jobs:
           - run:
               name: "add x permission for gradlew as necessary"
               command: chmod +x ./gradlew
+          - run:
+              name: "download dependencies"
+              command: "./gradlew androidDependencies --status"
           - save_cache:
               paths:
                 - ~/.gradle
