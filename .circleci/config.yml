@@ -7,6 +7,9 @@ jobs:
           - image: circleci/android:api-25-alpha
         steps:
           - checkout
+          - run:
+              name: "show checksum of build.gradle"
+              command: checksum "build.gradle"
           - run: echo "Hello world"
 orbs:
     hello: circleci/hello-build@0.0.7 # uses the circleci/buildpack-deps Docker image
