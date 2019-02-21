@@ -18,6 +18,9 @@ jobs:
           - run:
               name: "run lint test"
               command: "./gradlew lint test"
+          - store_artifacts:
+              path: app/build/reports
+              destination: reports
           - save_cache:
               paths:
                 - ~/.gradle
