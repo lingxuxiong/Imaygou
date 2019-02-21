@@ -15,6 +15,9 @@ jobs:
           - run:
               name: "download dependencies"
               command: "./gradlew androidDependencies --status"
+          - run:
+              name: "run lint test"
+              command: "./gradlew lint test"
           - save_cache:
               paths:
                 - ~/.gradle
